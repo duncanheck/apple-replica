@@ -1,17 +1,23 @@
 body {
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  font-family: 'Helvetica Neue', sans-serif;
 }
 
-img {
-  max-width: 100%;
-  height: auto;
+.fade-in {
+  animation: fadeIn 0.7s ease-in;
 }
 
-.carousel-inner {
-  border-radius: 1rem;
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
 }
 
-footer {
-  font-size: 0.9rem;
-  color: #6c757d;
+.table-hover tbody tr:hover {
+  background-color: #f2f2f2;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.carousel-inner img {
+  max-height: 400px;
+  object-fit: cover;
 }

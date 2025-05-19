@@ -28,3 +28,22 @@ function greetUser(name) {
   const greeting = hour < 12 ? "Good morning" : hour < 18 ? "Good afternoon" : "Good evening";
   return `${greeting}, ${name}!`;
 }
+// Load cart count when page loads
+document.addEventListener('DOMContentLoaded', () => {
+  updateCartCount();
+});
+
+// Add item to cart
+function addToCart(product, price) {
+  let cart = JSON.parse(localStorage.getItem('cart')) || [];
+  cart.push({ product, price });
+  localStorage.setItem('cart', JSON.stringify(cart));
+  updateCartCount();
+  alert(`${product} added to cart!`);
+}
+
+// Update cart badge count
+function updateCartCount() {
+  const cart = JSON.parse(localStorage.getItem('cart')) || [];
+  document.getElementById('cart-count').textContent = cart.length;
+}
